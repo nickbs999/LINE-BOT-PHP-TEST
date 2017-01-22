@@ -70,7 +70,7 @@ if (!is_null($events['events'])) {
 						$result_out = "9: (love) (rose stalk)(rose stalk)(rose stalk)";
 						break;
 					default:
-						$result_out = "(no)";						
+						$result_out = "(no)";
 				}
 
 			}
