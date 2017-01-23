@@ -141,7 +141,7 @@ function getText($text_in) {
 function getSticker() {
      $sticker = array(  'type' => 'sticker',
                         'packageId' => '4',
-                        'stickerId' => '300' );
+                        'stickerId' => '298' );
      return $sticker;
 }
 
