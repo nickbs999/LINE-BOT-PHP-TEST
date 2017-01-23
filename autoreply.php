@@ -101,7 +101,7 @@ function getText($text_in) {
 				$text_out = "1: " . json_decode("\x10\x00\x78");
 				break;
 			case '2':
-				$text_out = "2: 0x10008C";
+				$text_out = "2: Hello, world 􀂲";
 				break;
 			case '3':
 				$text_out = "3: 0x100082";
