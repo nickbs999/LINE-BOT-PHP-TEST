@@ -18,12 +18,19 @@ if (!is_null($events['events'])) {
                 case 'text':
                     // Get message in.
 			        $text_in = $event['message']['text'];
+
+                    $ret = isStrickerMapping($text_in);
+                    if ($ret == TRUE) {
+                        $messages = getStrickerMapping();
+                        break;
+                    }
+                    
                     $text_out = getText($text_in);
                     // Build message to reply back
-			        $messages = [
-				        'type' => 'text',
-				        'text' => $text_out
-			        ];                  
+                    $messages = [
+                            'type' => 'text',
+                            'text' => $text_out
+                    ];                                 
                     break;
 
                 case 'image':
@@ -155,6 +162,28 @@ function getSticker() {
     $sticker = array(  'type' => 'sticker',
                         'packageId' => $sticker_package,
                         'stickerId' => $sticker_id );
+    return $sticker;
+}
+
+function isStrickerMapping($text_in) {
+    
+    switch ($text_in) {
+		case 'รัก':
+		case 'รักเธอ':
+        case 'love':
+            $ret = TRUE;	
+			break;
+        default: 
+            $ret = FALSE;
+    }
+    return $ret;
+}
+
+function getStrickerMapping() {
+
+    $sticker = array(  'type' => 'sticker',
+                        'packageId' => '4',
+                        'stickerId' => '257' );
     return $sticker;
 }
 
