@@ -95,10 +95,10 @@ function getText($text_in) {
 				
 		switch ($text_in) {
 			case '0':
-				$text_out = "0: " . json_encode("\x10\x00\x8D");
+				$text_out = "0: " . json_decode("\x10\x00\x8D");
 				break; 
 			case '1':
-				$text_out = "1: " . json_encode("\x10\x00\x78");
+				$text_out = "1: " . json_decode("\x10\x00\x78");
 				break;
 			case '2':
 				$text_out = "2: 0x10008C";
