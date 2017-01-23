@@ -123,13 +123,13 @@ function getText($text_in) {
 				$text_out = "6: 􀀷 􀀷 􀀷 􀀷";
 				break;
 			case '7':
-				$text_out = "7: 0x100058 0x100058 0x100058";
+				$text_out = "7: http://www.google.co.th";
 			    break;
 			case '8':
-				$text_out = "8: 0x100045";
+				$text_out = "8: TV-Online http://www.inwbungyee.com";
 				break;
 			case '9':
-				$text_out = "9: 0x1000B1 0x1000B9 0x1000B9 0x1000B9";
+				$text_out = "9: FB http://www.facebook.com";
 				break;
 			default:
 				$text_out = "􀂦";
@@ -148,16 +148,33 @@ function getText($text_in) {
 function getSticker() {
 
     $sticker_package = rand(1, 4);
-    if ($sticker_package == 1)
-        $sticker_id = rand(1, 80);
-    elseif ($sticker_package == 2)
-        $sticker_id = rand(81, 160);
-    elseif ($sticker_package == 3)
-        $sticker_id = rand(161, 240);
-    elseif ($sticker_package == 4)
-        $sticker_id = rand(241, 320);
-    elseif ($sticker_package == 5)
-        $sticker_id = rand(321, 400);
+    if ($sticker_package == 1) {
+        $sticker_id = rand(1, 430);
+        if ($sticker_id > 21) {
+            $sticker_id = rand(100, 430);
+            if ($sticker_id > 139) {
+                $sticker_id = rand(401, 430);
+            }
+        }
+    }
+    elseif ($sticker_package == 2) {
+        $sticker_id = rand(18, 527);
+        if ($sticker_id > 47) {
+            $sticker_id = rand(140, 527);
+            if ($sticker_id > 179) {
+                $sticker_id = rand(501, 527);
+            }
+        }
+    }
+    elseif ($sticker_package == 3) {
+        $sticker_id = rand(180, 259);        
+    }
+    elseif ($sticker_package == 4) {
+        $sticker_id = rand(260, 632);
+        if ($sticker_id > 307) {
+            $sticker_id = rand(601, 632);
+        }
+    }
 
     $sticker = array(  'type' => 'sticker',
                         'packageId' => $sticker_package,
@@ -182,8 +199,8 @@ function isStrickerMapping($text_in) {
 function getStrickerMapping() {
 
     $sticker = array(  'type' => 'sticker',
-                        'packageId' => '4',
-                        'stickerId' => '300' );
+                        'packageId' => '1',
+                        'stickerId' => '410' );
     return $sticker;
 }
 
