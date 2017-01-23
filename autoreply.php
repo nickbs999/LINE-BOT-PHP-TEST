@@ -139,9 +139,22 @@ function getText($text_in) {
 }
 
 function getSticker() {
-     $sticker = array(  'type' => 'sticker',
-                        'packageId' => '4',
-                        'stickerId' => '298' );
-     return $sticker;
+
+    $sticker_package = "'".rand(1, 5)."'";
+    if ($sticker_package == 1)
+        $sticker_id = "'".rand(1, 80)."'";
+    elseif ($sticker_package == 2)
+        $sticker_id = "'".rand(81, 160)."'";
+    elseif ($sticker_package == 3)
+        $sticker_id = "'".rand(161, 240)."'";
+    elseif ($sticker_package == 4)
+        $sticker_id = "'".rand(241, 320)."'";
+    elseif ($sticker_package == 5)
+        $sticker_id = "'".rand(321, 400)."'";
+
+    $sticker = array(  'type' => 'sticker',
+                        'packageId' => $sticker_package,
+                        'stickerId' => $sticker_id );
+    return $sticker;
 }
 
