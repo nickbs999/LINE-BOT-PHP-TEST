@@ -95,22 +95,22 @@ function getText($text_in) {
 				
 		switch ($text_in) {
 			case '0':
-				$text_out = "0: " . json_decode("\x10\x00\x8D");
+				$text_out = "0: 􀂳";
 				break; 
 			case '1':
-				$text_out = "1: " . json_decode("\x10\x00\x78");
+				$text_out = "1: 􀂴";
 				break;
 			case '2':
 				$text_out = "2: Hello, world 􀂲";
 				break;
 			case '3':
-				$text_out = "3: 0x100082";
+				$text_out = "3: 􀂵";
 				break;
 			case '4':
-				$text_out = "4: 0x100086";
+				$text_out = "4: 􀂶";
 				break;
 			case '5':
-				$text_out = "5: 0x100059 0x10005";
+                $text_out = "5: " . chr(hexdec(F48082B2));
 				break;
 			case '6':
 				$text_out = "6: 0x100037 0x100037 0x100037 0x100037";
@@ -119,7 +119,7 @@ function getText($text_in) {
 				$text_out = "7: 0x100058 0x100058 0x100058";
 			    break;
 			case '8':
-				$text_out = "8: 0x100045";
+				$text_out = "8: 0x100045" . chr(hexdec(100045));
 				break;
 			case '9':
 				$text_out = "9: 0x1000B1 0x1000B9 0x1000B9 0x1000B9";
