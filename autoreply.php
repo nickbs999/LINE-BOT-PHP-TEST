@@ -183,7 +183,7 @@ function getStrickerMapping() {
 
     $sticker = array(  'type' => 'sticker',
                         'packageId' => '4',
-                        'stickerId' => '257' );
+                        'stickerId' => '300' );
     return $sticker;
 }
 
