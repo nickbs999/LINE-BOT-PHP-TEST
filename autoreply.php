@@ -98,7 +98,7 @@ function getText($text_in) {
 				$text_out = "0: 0x10008D";
 				break;
 			case '1':
-				$text_out = "1: 0x100078";
+				$text_out = "1: \u{1F62C}";
 				break;
 			case '2':
 				$text_out = "2: 0x10008C";
