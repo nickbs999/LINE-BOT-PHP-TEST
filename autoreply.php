@@ -140,7 +140,7 @@ function getText($text_in) {
 
 function getSticker() {
 
-    $sticker_package = rand(1, 5);
+    $sticker_package = rand(1, 4);
     if ($sticker_package == 1)
         $sticker_id = rand(1, 80);
     elseif ($sticker_package == 2)
