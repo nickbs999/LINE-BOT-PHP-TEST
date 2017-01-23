@@ -87,7 +87,7 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-echo "Auto Reply Bot.";
+echo "Auto Reply Bot 1";
 
 function getText($text_in) {
     // Start check incoming message.
