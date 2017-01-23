@@ -11,13 +11,60 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
-			$text = $event['message']['text'];
+			$text_in = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
+
+            // Start check incoming message.
+            if (strlen($text_in)==1) {
+				
+				switch ($text_in) {
+					case '0':
+						$text_out = "0: (moon grin)";
+						break;
+					case '1':
+						$text_out = "1: (love)";
+						break;
+					case '2':
+						$text_out = "2: (hee)";
+						break;
+					case '3':
+						$text_out = "3: (sparkling eyes)";
+						break;
+					case '4':
+						$text_out = "4: (tongue out)";
+						break;
+					case '5':
+						$text_out = "5: (birthday)(birthday)";
+						break;
+					case '6':
+						$text_out = "6: (heart)(heart)(heart)(heart)";
+						break;
+					case '7':
+						$text_out = "7: (beer)(beer)(beer)";
+						break;
+					case '8':
+						$text_out = "8: (angry)";
+						break;
+					case '9':
+						$text_out = "9: (love) (rose stalk)(rose stalk)(rose stalk)";
+						break;
+					default:
+						$text_out = "(no)";
+				}
+
+			}
+			elseif (strtoupper($text_in) == "HELP") {
+				$text_out = "ต้องการให้ช่วยเรื่องอะไร \nเพียงแค่พิมพ์ข้อความดังต่อไปนี้เลยคร๊าบ (moon grin) \n\n1.เมนู_1 \n2.เมนู_2 \n3.เมนู_3 \n4.เมนู_4 \n5.เมนู_5 \n6.เมนู_6 \n7.เมนู_7 \n8.เมนู_8 \n9.เมนู_9 \n0.เมนู_0 \n\n(heart)\n และหากต้องการความช่วยเหลือด่วนติดต่อได้ 24 ชั่วโมง ที่นี่เลย \n(phone) 02-222-3333";
+			}
+			else {
+				$text_out = $text_in;
+			}
+
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $text
+				'text' => $text_out
 			];
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
@@ -27,6 +74,7 @@ if (!is_null($events['events'])) {
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -36,55 +84,9 @@ if (!is_null($events['events'])) {
 			$result = curl_exec($ch);
 			curl_close($ch);			
 
-			if (strlen($result)==1) {
-				
-				switch ($result) {
-					case '0':
-						$result_out = "0: (moon grin)";
-						break;
-					case '1':
-						$result_out = "1: (love)";
-						break;
-					case '2':
-						$result_out = "2: (hee)";
-						break;
-					case '3':
-						$result_out = "3: (sparkling eyes)";
-						break;
-					case '4':
-						$result_out = "4: (tongue out)";
-						break;
-					case '5':
-						$result_out = "5: (birthday)(birthday)";
-						break;
-					case '6':
-						$result_out = "6: (heart)(heart)(heart)(heart)";
-						break;
-					case '7':
-						$result_out = "7: (beer)(beer)(beer)";
-						break;
-					case '8':
-						$result_out = "8: (angry)";
-						break;
-					case '9':
-						$result_out = "9: (love) (rose stalk)(rose stalk)(rose stalk)";
-						break;
-					default:
-						$result_out = "(no)";
-				}
-
-			}
-			elseif (strtoupper($result) == "HELP") {
-				$result_out = "ต้องการให้ช่วยเรื่องอะไร \nเพียงแค่พิมพ์ข้อความดังต่อไปนี้เลยคร๊าบ (moon grin) \n\n1.เมนู_1 \n2.เมนู_2 \n3.เมนู_3 \n4.เมนู_4 \n5.เมนู_5 \n6.เมนู_6 \n7.เมนู_7 \n8.เมนู_8 \n9.เมนู_9 \n0.เมนู_0 \n\n(heart)\n และหากต้องการความช่วยเหลือด่วนติดต่อได้ 24 ชั่วโมง ที่นี่เลย \n(phone) 02-222-3333";
-			}
-			else {
-				$result_out = $result;
-			}
-
-			echo $result_out . "\r\n";
-
+			echo $result . "\r\n";
 		}
 	}
 }
-echo 'OK BOT2 Test2';
+echo "Auto Reply Bot.";
 
