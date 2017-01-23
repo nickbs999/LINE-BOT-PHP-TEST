@@ -95,41 +95,41 @@ function getText($text_in) {
 				
 		switch ($text_in) {
 			case '0':
-				$text_out = "0: " . chr(0x10008D);
+				$text_out = "0: 0x10008D";
 				break;
 			case '1':
-				$text_out = "1: " . chr(0x100078);
+				$text_out = "1: 0x100078";
 				break;
 			case '2':
-				$text_out = "2: " . chr(0x10008C);
+				$text_out = "2: 0x10008C";
 				break;
 			case '3':
-				$text_out = "3: " . chr(0x100082);
+				$text_out = "3: 0x100082";
 				break;
 			case '4':
-				$text_out = "4: " . chr(0x100086);
+				$text_out = "4: 0x100086";
 				break;
 			case '5':
-				$text_out = "5: " . chr(0x100059) . chr(0x100056);
+				$text_out = "5: 0x100059 0x10005";
 				break;
 			case '6':
-				$text_out = "6: " . chr(0x100037) . chr(0x100037) . chr(0x100037) . chr(0x100037);
+				$text_out = "6: 0x100037 0x100037 0x100037 0x100037";
 				break;
 			case '7':
-				$text_out = "7: " . chr(0x100058) . chr(0x100058) . chr(0x100058);
+				$text_out = "7: 0x100058 0x100058 0x100058";
 			    break;
 			case '8':
-				$text_out = "8: " . chr(0x100045);
+				$text_out = "8: 0x100045";
 				break;
 			case '9':
-				$text_out = "9: " . chr(0x1000B1) . "  " chr(0x1000B9) . chr(0x1000B9) . chr(0x1000B9);
+				$text_out = "9: 0x1000B1 0x1000B9 0x1000B9 0x1000B9";
 				break;
 			default:
-				$text_out = "(no)";
+				$text_out = "0x1000A6";
 		}
 	}
 	elseif (strtoupper($text_in) == "HELP") {
-		$text_out = "ต้องการให้ช่วยเรื่องอะไร? \nเพียงแค่พิมพ์ข้อความดังต่อไปนี้เลยคร๊าบ " . chr(0x10008D) . " \n\n1.เมนู_1 \n2.เมนู_2 \n3.เมนู_3 \n4.เมนู_4 \n5.เมนู_5 \n6.เมนู_6 \n7.เมนู_7 \n8.เมนู_8 \n9.เมนู_9 \n0.เมนู_0 \n\n" . chr(0x100037) . "\n และหากต้องการความช่วยเหลือด่วนติดต่อได้ 24 ชั่วโมง ที่นี่เลย \n" . chr(0x10003C) . " 02-222-3333";
+		$text_out = "ต้องการให้ช่วยเรื่องอะไร? \nเพียงแค่พิมพ์ข้อความดังต่อไปนี้เลยคร๊าบ 0x10008D \n\n1.เมนู_1 \n2.เมนู_2 \n3.เมนู_3 \n4.เมนู_4 \n5.เมนู_5 \n6.เมนู_6 \n7.เมนู_7 \n8.เมนู_8 \n9.เมนู_9 \n0.เมนู_0 \n\n 0x100037 \n และหากต้องการความช่วยเหลือด่วนติดต่อได้ 24 ชั่วโมง ที่นี่เลย \n 0x10003C  02-222-3333";
 	}
 	else {
 		$text_out = $text_in;
