@@ -215,8 +215,8 @@ function getStrickerMapping($text_in) {
             break;
         case 'love':
         case 'love you':
-            $sticker_package = 1;
-            $sticker_id = 410;
+            $sticker_package = 3;
+            $sticker_id = 180;
             break;
         default: 
             return FALSE;
