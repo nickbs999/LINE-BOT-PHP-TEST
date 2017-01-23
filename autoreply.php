@@ -96,7 +96,7 @@ function getText($text_in) {
 		switch ($text_in) {
 			case '0':
 				$text_out = "0: " . json_encode("\x10\x00\x8D");
-				break;
+				break; 
 			case '1':
 				$text_out = "1: " . json_encode("\x10\x00\x78");
 				break;
