@@ -19,14 +19,21 @@ if (!is_null($events['events'])) {
                     // Get message in.
 			        $text_in = $event['message']['text'];
 
-                    $ret = isStrickerMapping($text_in);
+                    // $ret = isStrickerMapping($text_in);
+                    // if ($ret == TRUE) {
+                    //     $messages = getStrickerMapping($text_in);
+                    //     break;
+                    // }
+
+                    // Check wording and Build Sticker to reply back.
+                    $ret = getStrickerMapping($text_in);
                     if ($ret == TRUE) {
-                        $messages = getStrickerMapping();
+                        $messages = $sticker_map;
                         break;
                     }
                     
-                    $text_out = getText($text_in);
                     // Build message to reply back
+                    $text_out = getText($text_in);
                     $messages = [
                             'type' => 'text',
                             'text' => $text_out
@@ -182,25 +189,42 @@ function getSticker() {
     return $sticker;
 }
 
-function isStrickerMapping($text_in) {
+// function isStrickerMapping($text_in) {
     
+//     switch ($text_in) {
+// 		case 'รัก':
+// 		case 'รักเธอ':
+//         case 'love':
+//             $ret = TRUE;	
+// 			break;
+//         default: 
+//             $ret = FALSE;
+//     }
+//     return $ret;
+// }
+
+function getStrickerMapping($text_in) {
+
+    global $sticker_map;
+
     switch ($text_in) {
 		case 'รัก':
 		case 'รักเธอ':
+            $sticker_package = 1;
+            $sticker_id = 410;
+            break;
         case 'love':
-            $ret = TRUE;	
-			break;
+        case 'love you':
+            $sticker_package = 1;
+            $sticker_id = 410;
+            break;
         default: 
-            $ret = FALSE;
+            return FALSE;
     }
-    return $ret;
-}
 
-function getStrickerMapping() {
-
-    $sticker = array(  'type' => 'sticker',
-                        'packageId' => '1',
-                        'stickerId' => '410' );
-    return $sticker;
+    $sticker_map = array(  'type' => 'sticker',
+                           'packageId' => $sticker_package,
+                           'stickerId' => $sticker_id );
+    return TRUE;
 }
 
