@@ -140,17 +140,17 @@ function getText($text_in) {
 
 function getSticker() {
 
-    $sticker_package = "'".rand(1, 5)."'";
+    $sticker_package = rand(1, 5);
     if ($sticker_package == 1)
-        $sticker_id = "'".rand(1, 80)."'";
+        $sticker_id = rand(1, 80);
     elseif ($sticker_package == 2)
-        $sticker_id = "'".rand(81, 160)."'";
+        $sticker_id = rand(81, 160);
     elseif ($sticker_package == 3)
-        $sticker_id = "'".rand(161, 240)."'";
+        $sticker_id = rand(161, 240);
     elseif ($sticker_package == 4)
-        $sticker_id = "'".rand(241, 320)."'";
+        $sticker_id = rand(241, 320);
     elseif ($sticker_package == 5)
-        $sticker_id = "'".rand(321, 400)."'";
+        $sticker_id = rand(321, 400);
 
     $sticker = array(  'type' => 'sticker',
                         'packageId' => $sticker_package,
